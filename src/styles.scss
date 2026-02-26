@@ -1,0 +1,17 @@
+/* You can add global styles to this file, and also import other style files */
+:root {
+  --primary-color: #00f2fe;    /* Azul neón */
+  --secondary-color: #4facfe;  /* Degradado azul */
+  --bg-dark: #0f172a;          /* Fondo pizarra oscuro */
+  --card-bg: #1e293b;          /* Fondo de tarjetas */
+  --text-main: #f8fafc;        /* Blanco grisáceo */
+  --text-muted: #94a3b8;       /* Gris para notas */
+  --accent-color: #22c55e;     /* Verde para botones/status */
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background-color: var(--bg-dark);
+  color: var(--text-main);
+}

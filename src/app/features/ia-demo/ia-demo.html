@@ -1,0 +1,41 @@
+<div class="ia-container">
+  <h2>🤖 Demo de IA con Angular 19</h2>
+  <p class="nota">Modo Demostración: Prueba preguntando por "Angular" o "Luis".</p>
+
+  <div class="sugerencias-container">
+  @for (sug of sugerencias; track sug.etiqueta) {
+    <button class="chip" (click)="usarSugerencia(sug.prompt)" [disabled]="gemini.cargando()">
+      {{ sug.etiqueta }}
+    </button>
+  }
+</div>
+
+  <div class="input-group">
+    <textarea #userInput placeholder="Escribe aquí..."></textarea>
+    <button (click)="preguntar(userInput.value)" [disabled]="gemini.cargando()">
+      {{ gemini.cargando() ? 'Procesando...' : 'Consultar' }}
+    </button>
+  </div>
+
+  @if (gemini.cargando() && !textoEscribiendose()) {
+    <div class="loader">IA analizando tu pregunta...</div>
+  }
+
+  @if (textoEscribiendose()) {
+  <div class="chat-bubble">
+    <div class="bubble-header">
+      <strong>IA Mock</strong>
+      <button class="btn-copy" (click)="copiarAlPortapapeles()" [title]="'Copiar respuesta'">
+        @if (copiado()) {
+          <span>✅ ¡Copiado!</span>
+        } @else {
+          <span>📋 Copiar</span>
+        }
+      </button>
+    </div>
+    <p>{{ textoEscribiendose() }}</p>
+  </div>
+}
+
+
+</div>
